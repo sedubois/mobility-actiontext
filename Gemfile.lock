@@ -177,7 +177,6 @@ PLATFORMS
 DEPENDENCIES
   mobility!
   mobility-actiontext!
-  rails (~> 6.1.1)
   rubocop-rails (~> 2.9.1)
   sqlite3 (~> 1.4)
 

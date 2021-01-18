@@ -29,4 +29,6 @@ Gem::Specification.new do |spec|
   # FIXME: uncomment when Mobility 1.1 available
   # spec.add_dependency 'mobility', '~> 1.1'
   spec.add_dependency 'rails', '~> 6.0'
+
+  spec.add_development_dependency 'sqlite3', '~> 1.4'
 end

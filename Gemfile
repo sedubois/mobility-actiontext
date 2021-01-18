@@ -6,6 +6,4 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'mobility', github: 'shioyama/mobility'
-gem 'rails', '~> 6.1.1'
 gem 'rubocop-rails', '~> 2.9.1', require: false
-gem 'sqlite3', '~> 1.4'
