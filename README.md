@@ -1,7 +1,7 @@
 # Mobility Action Text
 
-[![Gem Version](https://badge.fury.io/rb/mobility-actiontext.svg)][gem]
-[![Build Status](https://github.com/sedubois/mobility-actiontext/workflows/CI/badge.svg)][actions]
+![Gem Version](https://badge.fury.io/rb/mobility-actiontext.svg)
+![Build Status](https://github.com/sedubois/mobility-actiontext/workflows/CI/badge.svg)
 
 Translate Rails [Action Text](https://guides.rubyonrails.org/action_text_overview.html) rich text with [Mobility](https://github.com/shioyama/mobility).
 
@@ -21,7 +21,7 @@ Or install it yourself as:
 
     $ gem install mobility-actiontext
 
-Make sure that Action Text has been [installed](https://guides.rubyonrails.org/action_text_overview.html#installation), then run this migration:
+Make sure that Action Text is [installed](https://guides.rubyonrails.org/action_text_overview.html#installation), then run this migration:
 
 ```rb
 class TranslateRichTexts < ActiveRecord::Migration[6.1]
