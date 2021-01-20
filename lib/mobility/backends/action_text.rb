@@ -49,7 +49,7 @@ module Mobility
       setup do |attributes, _options|
         attributes.each do |name|
           has_one :"rich_text_#{name}", -> { where(name: name, locale: Mobility.locale) },
-                  class_name: 'ActionText::RichText',
+                  class_name: 'Mobility::Backends::ActionText::Translation',
                   as: :record, inverse_of: :record, autosave: true, dependent: :destroy
           scope :"with_rich_text_#{name}", -> { includes("rich_text_#{name}") }
           scope :"with_rich_text_#{name}_and_embeds",
