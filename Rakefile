@@ -1,15 +1,6 @@
-# frozen_string_literal: true
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-require 'bundler/gem_tasks'
-require 'rake/testtask'
-require 'rubocop/rake_task'
+require_relative "config/application"
 
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'test_app/test'
-  t.libs << 'lib'
-  t.test_files = FileList['test_app/test/**/*_test.rb']
-end
-
-RuboCop::RakeTask.new
-
-task default: %i[test rubocop]
+Rails.application.load_tasks

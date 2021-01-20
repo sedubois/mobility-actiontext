@@ -15,5 +15,4 @@ jobs:
         restore-keys: |
           bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby }}-
     - run: bundle install
-    - run: bundle exec rake test
-    - run: bundle exec rake rubocop
+    - run: bundle exec rails test

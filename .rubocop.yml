@@ -1,6 +1,0 @@
-require: rubocop-rails
-
-AllCops:
-  Exclude:
-    - 'test_app/**/*'
-  NewCops: enable

@@ -59,13 +59,13 @@ Action Text's rich text content is saved in its own model that can be associated
 
 This is done through the `Mobility::Backends::ActionText::Translation` model extending `ActionText::RichText`. This model is backed by Action Text's existing `action_text_rich_texts` table and its existing `name`, `body` and `record` attributes, to which is added a new `locale` attribute.
 
+[Read more](https://github.com/shioyama/mobility/issues/385) on the genesis of this gem.
+
 ## Development
 
 After checking out the repo, run `bundle install` to install dependencies. Then, run `rake test` to run the tests.
 
 To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-For more info on the genesis of this gem, [see here](https://github.com/shioyama/mobility/issues/385).
 
 ## Contributing
 
