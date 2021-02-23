@@ -1,3 +1,15 @@
+post_one_title_en:
+  record: one (Post)
+  name: title
+  locale: en
+  body: Post Title
+
+post_one_title_fr:
+  record: one (Post)
+  name: title
+  locale: fr
+  body: Le titre du billet
+
 post_one_content_en:
   record: one (Post)
   name: content
@@ -9,6 +21,12 @@ post_one_content_fr:
   name: content
   locale: fr
   body: <h1>Bonjour le monde !</h1>
+
+untranslated_title_en:
+  record: untranslated (Post)
+  name: title
+  locale: en
+  body: untranslated title
 
 untranslated_content_en:
   record: untranslated (Post)

@@ -22,22 +22,31 @@ module Mobility
     #   post.content
     #   #=> "<div class=\"trix-content\">\n  <h1>My text is rich</h1>\n</div>\n"
     #   post.rich_text_translations.first.class
-    #   #=> Mobility::Backends::ActionText::Translation
+    #   #=> Mobility::Backends::ActionText::RichTextTranslation
     #
     class ActionText < ActiveRecord::KeyValue
       # override to return record instead of value
       def read(locale, **options)
+        return super if self.options[:plain]
         translation_for(locale, **options)
       end
 
       class << self
+        def valid_keys
+          super.tap { |keys| keys.delete(:type) } << :plain
+        end
+
         # @!group Backend Configuration
         # @option (see Mobility::Backends::KeyValue::ClassMethods#configure)
         def configure(options)
-          raise ArgumentError, 'The type option is unsupported with this backend.' if options[:type]
-
-          options[:association_name] ||= 'rich_text_translations'
-          options[:class_name]       ||= Translation
+          options[:plain] = false unless options.has_key?(:plain)
+          if options[:plain]
+            options[:association_name] ||= 'plain_text_translations'
+            options[:class_name]       ||= PlainTextTranslation
+          else
+            options[:association_name] ||= 'rich_text_translations'
+            options[:class_name]       ||= RichTextTranslation
+          end
           options[:key_column]       ||= :name
           options[:value_column]     ||= :body
           options[:belongs_to]       ||= :record
@@ -49,21 +58,38 @@ module Mobility
       setup do |attributes, _options|
         attributes.each do |name|
           has_one :"rich_text_#{name}", -> { where(name: name, locale: Mobility.locale) },
-                  class_name: 'Mobility::Backends::ActionText::Translation',
+                  class_name: 'Mobility::Backends::ActionText::RichTextTranslation',
                   as: :record, inverse_of: :record, autosave: true, dependent: :destroy
           scope :"with_rich_text_#{name}", -> { includes("rich_text_#{name}") }
           scope :"with_rich_text_#{name}_and_embeds",
                 -> { includes("rich_text_#{name}": { embeds_attachments: :blob }) }
+        end unless _options[:plain]
+      end
+
+      module ActionTextValidations
+        extend ActiveSupport::Concern
+
+        included do
+          validates :name,
+                    presence: true,
+                    uniqueness: { scope: %i[record_id record_type locale], case_sensitive: true }
+          validates :record, presence: true
+          validates :locale, presence: true
         end
       end
 
       # Model for translated rich text
-      class Translation < ::ActionText::RichText
-        validates :name,
-                  presence: true,
-                  uniqueness: { scope: %i[record_id record_type locale], case_sensitive: true }
-        validates :record, presence: true
-        validates :locale, presence: true
+      class RichTextTranslation < ::ActionText::RichText
+        extend ActionTextValidations
+      end
+
+      # Model for translated plain text
+      class PlainTextTranslation < ::ActiveRecord::Base
+        self.table_name = "action_text_rich_texts"
+
+        belongs_to :record, polymorphic: true, touch: true
+
+        extend ActionTextValidations
       end
     end
 

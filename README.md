@@ -53,6 +53,20 @@ class Message < ApplicationRecord
 end
 ```
 
+### Plain text
+
+Although the main purpose of the `action_text_rich_texts` table is to store rich text, it can also be used for plain text. This can be useful to avoid migrating data when converting data between plain and rich text.
+
+```diff
+# app/models/message.rb
+class Message < ApplicationRecord
+   extend Mobility
+
++  translates :title, backend: :action_text, plain: true
+   translates :content, backend: :action_text
+end
+```
+
 ## Implementation note
 
 Action Text's rich text content is saved in its own model that can be associated with any existing Active Record model using a polymorphic relation. Likewise, Mobility's KeyValue backend allows to translate any model using a polymorphic relation. This gem makes use of this similarity by combining both features in a single step, thus offering rich text "for free", i.e. in theory at no extra performance cost compared to untranslated rich text or translated plain text.
