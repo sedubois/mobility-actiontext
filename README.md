@@ -55,7 +55,7 @@ end
 
 ### Plain text
 
-Although the main purpose of the `action_text_rich_texts` table is to store rich text, it can also be used for plain text. This can be useful to avoid migrating data when converting data between plain and rich text.
+Although the main purpose of the `action_text_rich_texts` table is to store rich text, this gem allows using it for plain text as well. This could be useful to consolidate all text in a single table and to remove the need to migrate data when converting between one and the other.
 
 ```diff
 # app/models/message.rb
