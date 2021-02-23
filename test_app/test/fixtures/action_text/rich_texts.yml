@@ -2,4 +2,16 @@ post_one_content_en:
   record: one (Post)
   name: content
   locale: en
-  body: <h1>hello world!</h1>
+  body: <h1>Hello world!</h1>
+
+post_one_content_fr:
+  record: one (Post)
+  name: content
+  locale: fr
+  body: <h1>Bonjour le monde !</h1>
+
+untranslated_content_en:
+  record: untranslated (Post)
+  name: content
+  locale: en
+  body: untranslated content
