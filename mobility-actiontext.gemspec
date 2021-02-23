@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Translate Rails Action Text rich text with Mobility.'
   spec.homepage      = 'https://github.com/sedubois/mobility-actiontext'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 3.0.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.7.2')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/sedubois/mobility-actiontext'
