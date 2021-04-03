@@ -77,9 +77,9 @@ This is done through the `Mobility::Backends::ActionText::Translation` model ext
 
 ## Development
 
-After checking out the repo, run `bundle install` to install dependencies. Then, run `rake test` to run the tests.
+After checking out the repo, run `bundle install` to install dependencies. Then, run `cd test_app && bundle exec rails test` to run the tests.
 
-To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To release a new version, update `lib/mobility/action_text/version.rb` and CHANGELOG.md, commit, then run `bundle exec rake release`. This will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
