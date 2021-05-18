@@ -98,7 +98,9 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
-    puma (5.2.2)
+    nokogiri (1.11.3-x86_64-linux)
+      racc (~> 1.4)
+    puma (5.3.1)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -175,6 +177,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   byebug
@@ -182,7 +185,7 @@ DEPENDENCIES
   listen (~> 3.3)
   mobility (~> 1.1)
   mobility-actiontext!
-  puma (~> 5.0)
+  puma (~> 5.3)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
   sass-rails (>= 6)
