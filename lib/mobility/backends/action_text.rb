@@ -50,6 +50,7 @@ module Mobility
           options[:key_column]       ||= :name
           options[:value_column]     ||= :body
           options[:belongs_to]       ||= :record
+          options[:include_other_translation_classes] ||= []
           super
         end
         # @!endgroup
