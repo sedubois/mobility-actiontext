@@ -50,10 +50,21 @@ module Mobility
           options[:key_column]       ||= :name
           options[:value_column]     ||= :body
           options[:belongs_to]       ||= :record
-          options[:include_other_translation_classes] ||= []
           super
         end
         # @!endgroup
+
+        # override destroy logic because we are not using the db tables from
+        # the subclassed KeyValue implementation
+        def define_after_destroy_callback(translation_class, belongs_to)
+          # Ensure we only call after destroy hook once per translations class
+          translation_classes = [translation_class, *[RichTextTranslation, PlainTextTranslation]].uniq
+          model_class.after_destroy do
+            @mobility_after_destroy_translation_classes = [] unless defined?(@mobility_after_destroy_translation_classes)
+            (translation_classes - @mobility_after_destroy_translation_classes).each { |klass| klass.where(belongs_to => self).destroy_all }
+            @mobility_after_destroy_translation_classes += translation_classes
+          end
+        end
       end
 
       setup do |attributes, _options|
