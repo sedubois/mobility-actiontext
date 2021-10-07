@@ -104,5 +104,11 @@ module Mobility
         skip('FIXME: this should execute no queries')
       end
     end
+
+    test 'post is being destroyed' do
+      assert_difference ->{Mobility::Backends::ActionText::RichTextTranslation.count}, -4 do
+        assert posts(:one).destroy
+      end
+    end
   end
 end
