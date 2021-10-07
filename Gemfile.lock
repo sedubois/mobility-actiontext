@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mobility-actiontext (0.2.0)
+    mobility-actiontext (0.3.0)
       mobility (~> 1.2)
       rails (~> 6.0)
 
