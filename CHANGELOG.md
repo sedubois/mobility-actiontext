@@ -4,7 +4,7 @@
 - Fix destroying records ([#12](https://github.com/sedubois/mobility-actiontext/pull/12)).
 
 ### 0.2.0 (2021-04-03)
-- Widen Ruby compatibility to >= 2.5.
+- Widen Ruby compatibility to >= 2.5 ([#6](https://github.com/sedubois/mobility-actiontext/pull/6)).
 
 ### 0.1.0 (2021-02-26)
 - Initial release.
