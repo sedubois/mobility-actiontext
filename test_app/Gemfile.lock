@@ -100,7 +100,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
-    puma (5.5.0)
+    puma (5.5.1)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -185,7 +185,7 @@ DEPENDENCIES
   listen (~> 3.3)
   mobility (~> 1.2)
   mobility-actiontext!
-  puma (~> 5.0)
+  puma (~> 5.5)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
   sass-rails (>= 6)
