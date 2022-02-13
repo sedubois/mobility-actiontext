@@ -26,8 +26,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'actiontext', '>= 6.0'
   spec.add_dependency 'mobility', '~> 1.2'
-  spec.add_dependency 'rails', '>= 6.0'
 
   spec.add_development_dependency 'sqlite3', '~> 1.4'
 end
