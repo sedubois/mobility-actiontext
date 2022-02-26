@@ -22,6 +22,11 @@ post_one_content_fr:
   locale: fr
   body: <h1>Bonjour le monde !</h1>
 
+post_one_non_i18n_content:
+  record: one (Post)
+  name: non_i18n_content
+  body: <h1>Hello non i18n world!</h1>
+
 untranslated_title_en:
   record: untranslated (Post)
   name: title
