@@ -82,7 +82,7 @@ module Mobility
                 -> { includes("rich_text_#{name}": { embeds_attachments: :blob }) }
         end
 
-        singleton_class.prepend(WithAllRichText)
+        singleton_class.prepend(WithAllRichText) unless singleton_class < WithAllRichText
       end
 
       module WithAllRichText
