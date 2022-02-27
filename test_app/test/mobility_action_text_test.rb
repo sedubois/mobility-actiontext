@@ -95,7 +95,7 @@ module Mobility
       end
     end
 
-    test 'post content is eager loaded' do
+    test 'post content is eager loaded explicitly' do
       post = assert_queries(2) { Post.with_rich_text_content.last }
 
       assert_no_queries do
@@ -105,8 +105,24 @@ module Mobility
       end
     end
 
+    test 'post content is eager loaded with all rich text' do
+      post = assert_queries(2) { Post.with_all_rich_text.last }
+
+      assert_no_queries do
+        assert_equal 'Hello world!', post.content.to_plain_text
+      end
+    end
+
+    test 'post non_i18n_content is eager loaded with all rich text' do
+      post = assert_queries(2) { Post.with_all_rich_text.last }
+
+      assert_no_queries do
+        assert_equal 'Hello non i18n world!', post.non_i18n_content.to_plain_text
+      end
+    end
+
     test 'post is being destroyed' do
-      assert_difference ->{Mobility::Backends::ActionText::RichTextTranslation.count}, -4 do
+      assert_difference ->{Mobility::Backends::ActionText::RichTextTranslation.count}, -5 do
         assert posts(:one).destroy
       end
     end

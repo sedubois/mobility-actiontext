@@ -70,7 +70,9 @@ module Mobility
         end
       end
 
-      setup do |attributes, _options|
+      setup do |attributes, options|
+        next if options[:plain]
+
         attributes.each do |name|
           has_one :"rich_text_#{name}", -> { where(name: name, locale: Mobility.locale) },
                   class_name: 'Mobility::Backends::ActionText::RichTextTranslation',
@@ -78,7 +80,15 @@ module Mobility
           scope :"with_rich_text_#{name}", -> { includes("rich_text_#{name}") }
           scope :"with_rich_text_#{name}_and_embeds",
                 -> { includes("rich_text_#{name}": { embeds_attachments: :blob }) }
-        end unless _options[:plain]
+        end
+
+        singleton_class.prepend(WithAllRichText) unless singleton_class < WithAllRichText
+      end
+
+      module WithAllRichText
+        def with_all_rich_text
+          super.eager_load(:rich_text_translations)
+        end
       end
 
       module ActionTextValidations

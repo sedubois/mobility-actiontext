@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20_210_114_125_134) do
     t.integer 'record_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.string 'locale', null: false
+    t.string 'locale'
     t.index %w[record_type record_id name locale], name: 'index_action_text_rich_texts_uniqueness',
                                                    unique: true
   end
