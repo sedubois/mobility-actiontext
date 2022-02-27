@@ -100,9 +100,13 @@ module Mobility
 
       assert_no_queries do
         assert_equal 'Hello world!', post.content.to_plain_text
-
-        skip('FIXME: this should execute no queries')
       end
+    end
+
+    test 'correct translation is returned if single translation for different locale was eager loaded' do
+      post = assert_queries(2) { Mobility.with_locale(:en) { Post.with_rich_text_content.last } }
+
+      assert_equal 'Bonjour le monde !', Mobility.with_locale(:fr) { post.content }.to_plain_text
     end
 
     test 'post content is eager loaded with all rich text' do
@@ -111,6 +115,12 @@ module Mobility
       assert_no_queries do
         assert_equal 'Hello world!', post.content.to_plain_text
       end
+    end
+
+    test 'correct translation is returned if all translations for different locale were eager loaded' do
+      post = assert_queries(2) { Mobility.with_locale(:en) { Post.with_all_rich_text.last } }
+
+      assert_equal 'Bonjour le monde !', Mobility.with_locale(:fr) { post.content }.to_plain_text
     end
 
     test 'post non_i18n_content is eager loaded with all rich text' do
