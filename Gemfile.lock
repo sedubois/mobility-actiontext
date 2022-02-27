@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mobility-actiontext (0.5.0)
+    mobility-actiontext (0.6.0)
       actiontext (>= 6.0)
       mobility (~> 1.2)
 

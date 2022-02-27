@@ -1,5 +1,8 @@
 # Mobility Action Text Changelog
 
+### 0.6.0 (2022-02-27)
+- Include all translations on eager load using `with_all_rich_text` ([#23](https://github.com/sedubois/mobility-actiontext/pull/23)).
+
 ### 0.5.0 (2022-02-13)
 - Require only actiontext in gemspec dependencies ([#20](https://github.com/sedubois/mobility-actiontext/pull/20)).
 
