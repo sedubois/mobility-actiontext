@@ -28,6 +28,12 @@ module Mobility
       # override to return record instead of value
       def read(locale, **options)
         return super if self.options[:plain]
+
+        if model.association_cached?("rich_text_#{attribute}")
+          eager_loaded = model.public_send("rich_text_#{attribute}")
+          return eager_loaded if eager_loaded.locale == locale.to_s
+        end
+
         translation_for(locale, **options)
       end
 
