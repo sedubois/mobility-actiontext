@@ -1,5 +1,10 @@
 # Mobility Action Text Changelog
 
+### 1.0.0 (2022-02-28)
+- Fix eager loading of single translation using `with_rich_text_#{name}` ([#24](https://github.com/sedubois/mobility-actiontext/pull/24)).
+
+The version update to 1.0.0 indicates the plugin has no more known issues.
+
 ### 0.6.0 (2022-02-27)
 - Include all translations on eager load using `with_all_rich_text` ([#23](https://github.com/sedubois/mobility-actiontext/pull/23)).
 
