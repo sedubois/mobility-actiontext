@@ -83,6 +83,11 @@ module Mobility
           has_one :"rich_text_#{name}", -> { where(name: name, locale: Mobility.locale) },
                   class_name: 'Mobility::Backends::ActionText::RichTextTranslation',
                   as: :record, inverse_of: :record, autosave: true, dependent: :destroy
+          Mobility.available_locales.each do |locale|
+            has_one :"rich_text_#{name}_#{locale}", -> { where(name: name, locale: locale) },
+                    class_name: 'Mobility::Backends::ActionText::RichTextTranslation',
+                    as: :record, inverse_of: :record, autosave: true, dependent: :destroy
+          end
           scope :"with_rich_text_#{name}", -> { includes("rich_text_#{name}") }
           scope :"with_rich_text_#{name}_and_embeds",
                 -> { includes("rich_text_#{name}": { embeds_attachments: :blob }) }

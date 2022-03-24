@@ -1,5 +1,8 @@
 # Mobility Action Text Changelog
 
+### Unreleased
+- Add rich text associations for each locale ([#25](https://github.com/sedubois/mobility-actiontext/pull/25)).
+
 ### 1.0.0 (2022-02-28)
 - Fix eager loading of single translation using `with_rich_text_#{name}` ([#24](https://github.com/sedubois/mobility-actiontext/pull/24)).
 
