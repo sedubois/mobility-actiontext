@@ -1,6 +1,7 @@
 # Mobility Action Text Changelog
 
-### Unreleased
+### 1.1.0 (2022-03-24)
+
 - Add rich text associations for each locale ([#25](https://github.com/sedubois/mobility-actiontext/pull/25)).
 
 ### 1.0.0 (2022-02-28)
