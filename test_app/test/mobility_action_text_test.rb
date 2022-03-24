@@ -46,13 +46,31 @@ module Mobility
       assert_equal 'Post Title', post.title
     end
 
-    test 'post has rich text content' do
+    test 'post has rich text content association' do
       post = posts(:one)
 
       assert_instance_of Mobility::Backends::ActionText::RichTextTranslation, post.rich_text_content
       assert_equal <<~HTML, post.content.to_s
         <div class="trix-content">
           <h1>Hello world!</h1>
+        </div>
+      HTML
+    end
+
+    test 'post has rich text content associations for each locale' do
+      post = posts(:one)
+
+      assert_instance_of Mobility::Backends::ActionText::RichTextTranslation, post.rich_text_content_en
+      assert_equal <<~HTML, post.rich_text_content_en.to_s
+      <div class="trix-content">
+        <h1>Hello world!</h1>
+      </div>
+      HTML
+
+      assert_instance_of Mobility::Backends::ActionText::RichTextTranslation, post.rich_text_content_fr
+      assert_equal <<~HTML, post.rich_text_content_fr.to_s
+        <div class="trix-content">
+          <h1>Bonjour le monde !</h1>
         </div>
       HTML
     end
