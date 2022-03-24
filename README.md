@@ -77,7 +77,15 @@ This is done through the `Mobility::Backends::ActionText::Translation` model ext
 
 ## Development
 
-After checking out the repo, run `bundle install` to install dependencies. Then, run `cd test_app && bundle exec rails test` to run the tests.
+After checking out the repo, run `bundle install` to install dependencies.
+
+Execute tests by running:
+
+```sh
+cd test_app
+bundle install
+bundle exec rails test
+```
 
 To release a new version, update `lib/mobility/action_text/version.rb` and `CHANGELOG.md`, run `bundle && cd test_app && bundle`, commit, then run `bundle exec rake release`. This will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
@@ -88,4 +96,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/sedubo
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
- 
