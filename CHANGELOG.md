@@ -1,6 +1,6 @@
 # Mobility Action Text Changelog
 
-### Unreleased
+### 1.1.1 (2022-04-03)
 
 - Fix rich text associations for locales with hyphens.
 
