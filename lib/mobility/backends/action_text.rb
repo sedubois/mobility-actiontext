@@ -84,7 +84,8 @@ module Mobility
                   class_name: 'Mobility::Backends::ActionText::RichTextTranslation',
                   as: :record, inverse_of: :record, autosave: true, dependent: :destroy
           Mobility.available_locales.each do |locale|
-            has_one :"rich_text_#{name}_#{locale}", -> { where(name: name, locale: locale) },
+            has_one :"rich_text_#{name}_#{locale.to_s.underscore}",
+                    -> { where(name: name, locale: locale) },
                     class_name: 'Mobility::Backends::ActionText::RichTextTranslation',
                     as: :record, inverse_of: :record, autosave: true, dependent: :destroy
           end

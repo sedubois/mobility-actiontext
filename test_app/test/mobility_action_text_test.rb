@@ -34,10 +34,10 @@ module Mobility
       assert_equal 2, post.plain_text_translations.count
     end
 
-    test 'post has two rich text translations' do
+    test 'post has three rich text translations' do
       post = posts(:one)
 
-      assert_equal 2, post.rich_text_translations.count
+      assert_equal 3, post.rich_text_translations.count
     end
 
     test 'post has plain text title' do
@@ -60,17 +60,27 @@ module Mobility
     test 'post has rich text content associations for each locale' do
       post = posts(:one)
 
-      assert_instance_of Mobility::Backends::ActionText::RichTextTranslation, post.rich_text_content_en
+      assert_instance_of Mobility::Backends::ActionText::RichTextTranslation,
+                         post.rich_text_content_en
       assert_equal <<~HTML, post.rich_text_content_en.to_s
       <div class="trix-content">
         <h1>Hello world!</h1>
       </div>
       HTML
 
-      assert_instance_of Mobility::Backends::ActionText::RichTextTranslation, post.rich_text_content_fr
+      assert_instance_of Mobility::Backends::ActionText::RichTextTranslation,
+                         post.rich_text_content_fr
       assert_equal <<~HTML, post.rich_text_content_fr.to_s
         <div class="trix-content">
           <h1>Bonjour le monde !</h1>
+        </div>
+      HTML
+
+      assert_instance_of Mobility::Backends::ActionText::RichTextTranslation,
+                         post.rich_text_content_fr_ca
+      assert_equal <<~HTML, post.rich_text_content_fr_ca.to_s
+        <div class="trix-content">
+          <h1>Allo le monde !</h1>
         </div>
       HTML
     end
@@ -150,7 +160,7 @@ module Mobility
     end
 
     test 'post is being destroyed' do
-      assert_difference ->{Mobility::Backends::ActionText::RichTextTranslation.count}, -5 do
+      assert_difference ->{Mobility::Backends::ActionText::RichTextTranslation.count}, -6 do
         assert posts(:one).destroy
       end
     end
