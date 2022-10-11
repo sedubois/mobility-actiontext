@@ -7,21 +7,13 @@ Translate Rails [Action Text](https://guides.rubyonrails.org/action_text_overvie
 
 ## Installation
 
-Add this line to your application's Gemfile:
+1. [Install Action Text](https://guides.rubyonrails.org/action_text_overview.html#installation).
 
-```ruby
-gem 'mobility-actiontext'
-```
+2. [Install Mobility without tables](https://github.com/shioyama/mobility#activerecord-rails).
 
-And then execute:
+3. Execute `bundle add mobility-actiontext`
 
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install mobility-actiontext
-
-Make sure that Action Text is [installed](https://guides.rubyonrails.org/action_text_overview.html#installation), then run this migration:
+4. Run this migration:
 
 ```rb
 class TranslateRichTexts < ActiveRecord::Migration[6.1]
