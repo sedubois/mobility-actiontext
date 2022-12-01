@@ -81,8 +81,8 @@ GEM
     rake (13.0.6)
     request_store (1.5.1)
       rack (>= 1.4)
-    sqlite3 (1.5.3-x86_64-darwin)
-    sqlite3 (1.5.3-x86_64-linux)
+    sqlite3 (1.5.4-x86_64-darwin)
+    sqlite3 (1.5.4-x86_64-linux)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
 
@@ -96,4 +96,4 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
 
 BUNDLED WITH
-   2.3.12
+   2.3.26
