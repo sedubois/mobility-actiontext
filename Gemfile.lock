@@ -83,8 +83,8 @@ GEM
     rake (13.0.6)
     request_store (1.5.1)
       rack (>= 1.4)
-    sqlite3 (1.6.3-arm64-darwin)
-    sqlite3 (1.6.3-x86_64-linux)
+    sqlite3 (1.6.4-arm64-darwin)
+    sqlite3 (1.6.4-x86_64-linux)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
 
