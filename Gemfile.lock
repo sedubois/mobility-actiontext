@@ -61,6 +61,7 @@ GEM
       nokogiri (>= 1.12.0)
     marcel (1.0.2)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.4)
     minitest (5.19.0)
     mobility (1.2.9)
       i18n (>= 0.6.10, < 2)
@@ -83,8 +84,8 @@ GEM
     rake (13.0.6)
     request_store (1.5.1)
       rack (>= 1.4)
-    sqlite3 (1.6.4-arm64-darwin)
-    sqlite3 (1.6.4-x86_64-linux)
+    sqlite3 (1.6.6)
+      mini_portile2 (~> 2.8.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
 
