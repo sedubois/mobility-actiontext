@@ -94,7 +94,7 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
-    rake (13.0.6)
+    rake (13.1.0)
     request_store (1.5.1)
       rack (>= 1.4)
     ruby2_keywords (0.0.5)
@@ -114,4 +114,4 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
 
 BUNDLED WITH
-   2.4.19
+   2.4.21
