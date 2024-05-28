@@ -16,7 +16,7 @@ Translate Rails [Action Text](https://guides.rubyonrails.org/action_text_overvie
 4. Run this migration:
 
 ```rb
-class TranslateRichTexts < ActiveRecord::Migration[6.1]
+class TranslateRichTexts < ActiveRecord::Migration[7.1]
   def change
     # or null: true to allow untranslated rich text
     add_column :action_text_rich_texts, :locale, :string, null: false
