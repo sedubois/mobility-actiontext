@@ -6,10 +6,10 @@
 Translate Rails [Action Text](https://guides.rubyonrails.org/action_text_overview.html) rich text with [Mobility](https://github.com/shioyama/mobility).
 
 > [!WARNING]
-> This project is not maintained.
+> This project is unmaintained.
 
 > [!TIP]
-> Instead, try out vanilla Rails concerns for translating [model attributes](https://github.com/sedubois/mobility-actiontext/issues/59#issuecomment-2670675174) and [rich text](https://github.com/sedubois/mobility-actiontext/issues/59#issuecomment-2672570884).
+> Instead, try out vanilla Rails concerns for translating [model attributes](https://github.com/sedubois/mobility-actiontext/issues/59#issuecomment-2672570884) and [rich text](https://github.com/sedubois/mobility-actiontext/issues/59#issuecomment-2670675174).
 
 ## Installation
 
